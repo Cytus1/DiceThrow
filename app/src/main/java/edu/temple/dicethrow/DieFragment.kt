@@ -15,7 +15,7 @@ class DieFragment : Fragment() {
     private val ROLL_KEY = "current_roll"
     lateinit var dieTextView: TextView
 
-    var currentRoll = 1
+    var currentRoll = 0
 
     var dieSides: Int = 6
 
@@ -64,6 +64,11 @@ class DieFragment : Fragment() {
     }
     fun throwDie() {
         currentRoll = Random.nextInt(1, dieSides + 1)
+        dieTextView.text = currentRoll.toString()
+    }
+
+    fun throw20Die() {
+        currentRoll = Random.nextInt(1, 20 + 1)
         dieTextView.text = currentRoll.toString()
     }
 }

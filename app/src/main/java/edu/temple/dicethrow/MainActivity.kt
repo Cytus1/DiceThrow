@@ -10,18 +10,21 @@ import androidx.core.view.WindowInsetsCompat
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
 
+        setContentView(R.layout.activity_main)
 
         findViewById<Button>(R.id.rollDiceButton).setOnClickListener {
 
-        supportFragmentManager
-            .findFragmentById(R.id.fragmentContainerView) ?.run{
-                (this as DieFragment).throwDie()
-            }
+            supportFragmentManager
+                .findFragmentById(R.id.fragmentContainerView)?.run {
+                    (this as DieFragment).throwDie()
+                }
 
-
-        };
-
+            supportFragmentManager
+                .findFragmentById(R.id.fragmentContainerView2)?.run {
+                    (this as DieFragment).throw20Die()
+                }
+        }
     }
+
 }
